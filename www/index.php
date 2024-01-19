@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php
 
 if (empty($_GET['page'])) {
@@ -12,6 +13,12 @@ if (empty($_GET['page'])) {
             break;
         case 'a-propos':
             require "./views/a-propos.view.php";
+            break;
+        case 'connexion':
+            require "./views/connexion.view.php";
+            break;
+        case 'deconnexion':
+            require "./views/deconnexion.view.php";
             break;
         default:
             require "./views/error.view.php";

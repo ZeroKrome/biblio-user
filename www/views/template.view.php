@@ -24,19 +24,30 @@
                         <a class="nav-link" href="accueil">Accueil
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="livres">Livre</a>
-                    </li>
+                    <?php if (!empty($_SESSION)) : ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="livres">Livre</a>
+                        </li>
+                    <?php endif ?>
                     <li class="nav-item">
                         <a class="nav-link" href="a-propos">A propos</a>
                     </li>
 
             </div>
+            <li class="d-flex">
+                <?php if (empty($_SESSION)) : ?>
+                    <a class="btn btn-success my-2 my-sm-0" href="connexion">Connexion</a>
+                <?php else : ?>
+                    <form action=""></form>
+                    <a class="btn btn-success my-2 my-sm-0" href="deconnexion">Déconnexion</a>
+                <?php endif ?>
+            </li>
         </div>
     </nav>
     <div id="container" class="m-2">
         <h1 class="rounded border border-dark p-2 m-2 text-center text-white bg-info"><?= $titre ?></h1>
         <?= $content ?>
+        <?php if (isset($message)) echo $message ?>
     </div>
 
     <!-- javascript bootstrap version 4 -->
